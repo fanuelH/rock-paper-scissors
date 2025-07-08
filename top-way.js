@@ -27,10 +27,16 @@ function getHumanChoice() {
   }
 }
 
-const HUMAN_CHOICE = getHumanChoice();
-const COMPUTER_CHOICE = getComputerChoice();
-
 function playRound() {
+  const HUMAN_CHOICE = getHumanChoice();
+
+  if (!HUMAN_CHOICE) {
+    console.log("Game Cancelled!");
+    return;
+  }
+
+  const COMPUTER_CHOICE = getComputerChoice();
+
   if (HUMAN_CHOICE === COMPUTER_CHOICE) {
     console.log("It's a tie!");
   } else if (
@@ -47,4 +53,10 @@ function playRound() {
   console.log(`Your Score: ${humanScore} and Computer ${computerScore}`);
 }
 
-playRound();
+while (true) {
+  playRound();
+  if (!confirm("Do you went to continue playing?")) {
+    break;
+  }
+}
+console.log("Thank you for playing!");
