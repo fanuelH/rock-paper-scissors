@@ -1,6 +1,6 @@
 let humanScore = 0;
 let computerScore = 0;
-
+let round = 1;
 function getComputerChoice() {
   let option = ["Rock", "Paper", "Scissor"];
   let randomChoice = Math.floor(Math.random() * 3);
@@ -53,10 +53,30 @@ function playRound() {
   console.log(`Your Score: ${humanScore} and Computer ${computerScore}`);
 }
 
-while (true) {
-  playRound();
-  if (!confirm("Do you went to continue playing?")) {
-    break;
+function playGame() {
+  do {
+    console.log(`***Round-${round}***`);
+    playRound();
+    if (!confirm("Do you went to continue playing?")) {
+      break;
+    }
+    round++;
+  } while (round < 6);
+  displayResult();
+}
+
+function displayResult() {
+  if (humanScore > computerScore) {
+    console.log(
+      `Final Result : Congratulations. You won! ${humanScore} by ${computerScore}`
+    );
+  } else {
+    console.log(
+      `Final Result : Oops. you lost! ${humanScore} by ${computerScore}`
+    );
   }
 }
+
+playGame();
+
 console.log("Thank you for playing!");
