@@ -27,7 +27,7 @@ function getHumanChoice() {
   }
 }
 
-function playRound() {
+function playGame() {
   const HUMAN_CHOICE = getHumanChoice();
 
   if (!HUMAN_CHOICE) {
@@ -53,10 +53,10 @@ function playRound() {
   console.log(`Your Score: ${humanScore} and Computer ${computerScore}`);
 }
 
-function playGame() {
+function playRound() {
   do {
     console.log(`***Round-${round}***`);
-    playRound();
+    playGame();
     if (!confirm("Do you went to continue playing?")) {
       break;
     }
@@ -77,6 +77,6 @@ function displayResult() {
   }
 }
 
-playGame();
+playRound();
 
 console.log("Thank you for playing!");
