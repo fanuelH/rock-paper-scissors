@@ -52,6 +52,11 @@ function playGame(choice) {
 }
 
 function playRound(choice) {
+  if (round === 0) {
+    console.log(`***Round 1***`);
+  } else {
+    console.log(`***Round ${round + 1}***`);
+  }
   playGame(choice);
   round++;
   displayResult();
