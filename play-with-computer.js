@@ -68,17 +68,15 @@ function displayResult() {
       console.log(
         `Final Result : It's a tie! ${humanScore} by ${computerScore}`
       );
-      console.log("Thank you for playing!");
     } else if (humanScore > computerScore) {
       console.log(
         `Final Result : Congratulations. You won! ${humanScore} by ${computerScore}`
       );
-      console.log("Thank you for playing!");
     } else {
       console.log(
         `Final Result : Oops. you lost! ${humanScore} by ${computerScore}`
       );
-      console.log("Thank you for playing!");
     }
+    console.log("Thank you for playing!");
   }
 }
