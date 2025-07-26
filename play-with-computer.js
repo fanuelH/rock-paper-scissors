@@ -26,36 +26,38 @@ btnContainer.addEventListener("click", (e) => {
 function getComputerChoice() {
   let option = ["Rock", "Paper", "Scissor"];
   let randomChoice = Math.floor(Math.random() * 3);
-  console.log(`Computer's choice is ${option[randomChoice]}`);
+  showResult.innerHTML += `Computer's choice is ${option[randomChoice]}<br>`;
   return option[randomChoice];
 }
 
 function playGame(choice) {
   const HUMAN_CHOICE = choice;
   const COMPUTER_CHOICE = getComputerChoice();
-  console.log(`Your choice is ${choice}`);
+  showResult.innerHTML += `Your choice is ${choice}<br>`;
 
   if (HUMAN_CHOICE === COMPUTER_CHOICE) {
-    console.log("It's a tie!");
+    showResult.innerHTML += `It's a tie!<br>`;
   } else if (
     (HUMAN_CHOICE === "Rock" && COMPUTER_CHOICE === "Scissor") ||
     (HUMAN_CHOICE === "Paper" && COMPUTER_CHOICE === "Rock") ||
     (HUMAN_CHOICE === "Scissor" && COMPUTER_CHOICE === "Paper")
   ) {
-    console.log("Congratulations. You won!");
+    showResult.innerHTML += `Congratulations. You won!<br>`;
+
     humanScore++;
   } else {
-    console.log(`Oops. you lost! ${COMPUTER_CHOICE} beats`);
+    showResult.innerHTML += `Oops. you lost! ${COMPUTER_CHOICE} beats<br>`;
+
     computerScore++;
   }
-  console.log(`Your Score: ${humanScore} and Computer Score: ${computerScore}`);
+  showResult.innerHTML += `Your Score: ${humanScore} and Computer Score: ${computerScore}<br>`;
 }
 
 function playRound(choice) {
   if (round === 0) {
-    console.log(`***Round 1***`);
+    showResult.innerHTML += `***Round 1***<br>`;
   } else {
-    console.log(`***Round ${round + 1}***`);
+    showResult.innerHTML += `***Round ${round + 1}***<br>`;
   }
   playGame(choice);
   round++;
@@ -65,18 +67,12 @@ function playRound(choice) {
 function displayResult() {
   if (round === 5) {
     if (humanScore == computerScore) {
-      console.log(
-        `Final Result : It's a tie! ${humanScore} by ${computerScore}`
-      );
+      showResult.innerHTML += `Final Result : It's a tie! ${humanScore} by ${computerScore}<br>`;
     } else if (humanScore > computerScore) {
-      console.log(
-        `Final Result : Congratulations. You won! ${humanScore} by ${computerScore}`
-      );
+      showResult.innerHTML += `Final Result : Congratulations. You won! ${humanScore} by ${computerScore}<br>`;
     } else {
-      console.log(
-        `Final Result : Oops. you lost! ${humanScore} by ${computerScore}`
-      );
+      showResult.innerHTML += `Final Result : Oops. you lost! ${humanScore} by ${computerScore}<br>`;
     }
-    console.log("Thank you for playing!");
+    showResult.innerHTML += `Thank you for playing!<br>`;
   }
 }
